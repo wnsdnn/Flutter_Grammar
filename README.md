@@ -3,7 +3,6 @@
 
 <br>
 <br>
-<br>
 
 # 1. dart 기본문법
 
@@ -127,7 +126,7 @@
 <br>
 <br>
 
-# 4. final과 const
+# 4. Final과 Const
     ```
     // 변수 타입 앞쪽에 붙임
     // 상수
@@ -169,7 +168,7 @@
 <br>
 <br>
 
-# 5. operator
+# 5. Operator
     ```
     // operator(연산자)
 
@@ -271,5 +270,55 @@
     bool result5 = 12 < 10 || 0 > 1;
 
     print(result5); // false 
+    ```
+
+
+<br>
+<br>
+<br>
+
+# 6. List
+    ```
+    // 리스트
+    List<String> blackPink = ['제니', '지수', '로제', '리사'];
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+
+    print(blackPink); // ['제니', '지수', '로제', '리사']
+    print(numbers); // [1, 2, 3, 4, 5, 6]
+
+
+    // index
+    // 순서
+    // 0부터 시작
+    print(blackPink[0]); // 제니
+    print(blackPink[1]); // 지수
+    print(blackPink[2]); // 로제
+    print(blackPink[3]); // 리사
+    print(blackPink[4]); // Error
+
+
+    // 값 추가
+    blackPink.add('준우');
+    print(blackPink); // ['제니', '지수', '로제', '리사', '준우']
+
+    // 값 삭제
+    blackPink.remove('리사');
+    print(blackPink); // ['제니', '지수', '로제', '준우']
+
+    // 원하는 값 인덱스 찾기
+    print(blackPink.indexOf('준우')); // 3
+    ```
+
+<br>
+<br>
+<br>
+
+# 7. Map
+    ```
+    // 맵
+    // Key / Value
+
+
+
     ```
 
