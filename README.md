@@ -9,7 +9,7 @@
 
 <br>
 
-1. 콘솔 출력하기
+# 1. 콘솔 출력하기
 
 
     ```
@@ -17,8 +17,9 @@
     ```
 <br>
 <br>
+<br>
 
-2. 변수 선언하기
+# 2. 변수 선언하기
 
     ```
     // variable(변수)
@@ -100,8 +101,9 @@
 
 <br>
 <br>
+<br>
 
-3. 변수 null 허용여부 설정
+# 3. 변수 null 허용여부 설정
     ```
     // nullable - null이 될 수 있다.
     // non-nullable - null이 될 수 없다.
@@ -123,8 +125,9 @@
 
 <br>
 <br>
+<br>
 
-4. final과 const
+# 4. final과 const
     ```
     // 변수 타입 앞쪽에 붙임
     // 상수
@@ -160,3 +163,113 @@
     // 빌드과정에 now2에 값이 할당 되어있지 않기 때문에 에러
     // const DateTime now2 = DateTime.now(); => Error
     ```
+
+
+<br>
+<br>
+<br>
+
+# 5. operator
+    ```
+    // operator(연산자)
+
+    // var number = 5;
+    // number++; => number에 +1
+    // number--; => number에 -1
+
+    // var num = m;
+    // num += n; -> num의 n만큼 더하겠다.
+    // num -= n; -> num의 n만큼 뻬겠다.
+    // num #= n; -> num의 n만큼 곱하겠다.
+    // num /= n; -> num의 n만큼 나누겠다.
+
+
+    var number = 10;
+
+    number++; // 11
+
+    number--; // 10
+
+    number += 5; // 15
+
+    number -= 5; // 10
+
+    number *= 2; // 20
+
+    number /= 2; // 10
+
+
+
+    // num ??= n; -> num의 값이 null이면 n적용, 아님 기존값 유지.
+
+    double number2 = 4.0;
+
+    number2 = 2.0; // 2.0
+
+    number2 ?? = 3.0;
+    // number이 nul이면 3.0 할당
+    // number이 null이 아니면 2.0 유지
+
+
+    =====================================================
+
+
+    // number1 < number2 -> number1이 number2보다 작으면 true 아님 false
+    // number1 > number2 -> number1이 number2보다 크면 true 아님 false
+    // number1 <= number2 -> number1이 number2보다 작거나 같으면 true 아님 false
+    // number1 >= number2 -> number1이 number2보다 크거나 같으면 true 아님 false
+    // number1 == number2 -> number1이 number2랑 같으면 true 아님 false
+    // number1 != number2 -> number1이 number2랑 다르면 true 아님 false
+
+    val number1 = 10;
+    val number2 = 20;
+
+    print(number1 < number2); // true
+    print(number1 > number2); // false
+    print(number1 <= number2); // true
+    print(number1 >= number2); // false
+    print(number1 == number2); // false
+    print(number1 != number2); // true
+
+
+    =====================================================
+
+
+    // 타입비교
+    var number = 1;
+
+    print(number is int); // true
+    print(number is String); // false
+
+    // 반대
+    print(number is! int); // false
+    print(number is! String); // true
+
+
+    =====================================================
+
+
+    // && - and 조건
+    // || - or 조건
+
+    bool result = 12 > 10 && 1 > 0 && 3 > 0;
+
+    print(result); // true
+
+    bool result2 = 12 > 10 && 0 > 1;
+
+    print(result2); // false
+
+    bool result3 = 12 > 10 || 1 > 0;
+
+    print(result3); // true
+
+    bool result4 = 12 > 10 || 0 > 1;
+
+    print(result4); // true
+
+    bool result5 = 12 < 10 || 0 > 1;
+
+    print(result5); // false 
+    ```
+
