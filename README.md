@@ -16,7 +16,6 @@
     ```
 <br>
 <br>
-<br>
 
 # 2. 변수 선언하기
 
@@ -100,7 +99,6 @@
 
 <br>
 <br>
-<br>
 
 # 3. 변수 null 허용여부 설정
     ```
@@ -122,7 +120,6 @@
     print(name!);
     ```
 
-<br>
 <br>
 <br>
 
@@ -164,7 +161,6 @@
     ```
 
 
-<br>
 <br>
 <br>
 
@@ -275,11 +271,10 @@
 
 <br>
 <br>
-<br>
 
-# 6. List
+# 6. List, Map
     ```
-    // 리스트
+    // List
     List<String> blackPink = ['제니', '지수', '로제', '리사'];
     List<int> numbers = [1, 2, 3, 4, 5, 6];
 
@@ -287,8 +282,7 @@
     print(numbers); // [1, 2, 3, 4, 5, 6]
 
 
-    // index
-    // 순서
+    // index (순서) 
     // 0부터 시작
     print(blackPink[0]); // 제니
     print(blackPink[1]); // 지수
@@ -307,18 +301,56 @@
 
     // 원하는 값 인덱스 찾기
     print(blackPink.indexOf('준우')); // 3
-    ```
 
-<br>
-<br>
-<br>
 
-# 7. Map
-    ```
-    // 맵
+    =====================================================
+
+
+    // Map
     // Key / Value
+    Map<String, String> dictionary = {
+        'Harry Potter': '해리포터',
+        'Ron Weasley': '론 위즐리',
+        'Hermione Granger': '헤르미온느 그레인저',
+    };
+
+    Map<String, bool> isHarryPotter = {
+        'Harray Potter': true,
+        'Ron Weasley': true,
+        'Ironman': false,
+    };
 
 
+    // Map에 데이터 추가하는 함수
+    // 스파이더맨 추가
+    isHarryPotter.addAll({
+        'Spiderman': false,
+    });
+
+    // key값으로 데이터 가져오기
+    print(isHarryPotter['Ironman']);
+
+    // 임의적 Map에 데이터 추가
+    isHarryPotter['Hulk'] = false;
+
+    // 값 변경
+    isHarryPotter['Spiderman'] = true;
+
+    // 데이터 삭제
+    isHarryPotter.remove('Harry Potter');
+
+    // key값만 가져오기
+    print(isHarryPotter.keys);
+
+    // value값만 가져오기
+    print(isHarryPotter.values);
 
     ```
 
+<br>
+<br>
+
+# 7. 
+    ```
+    
+    ```
