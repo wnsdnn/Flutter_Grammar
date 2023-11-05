@@ -8,7 +8,7 @@
 
 <br>
 
-# 1. 콘솔 출력하기
+## 1. 콘솔 출력하기
 
 
     ```
@@ -17,7 +17,7 @@
 <br>
 <br>
 
-# 2. 변수 선언하기
+## 2. 변수 선언하기
 
     ```
     // variable(변수)
@@ -100,7 +100,7 @@
 <br>
 <br>
 
-# 3. 변수 null 허용여부 설정
+## 3. 변수 null 허용여부 설정
     ```
     // nullable - null이 될 수 있다.
     // non-nullable - null이 될 수 없다.
@@ -123,7 +123,7 @@
 <br>
 <br>
 
-# 4. Final과 Const
+## 4. Final과 Const
     ```
     // 변수 타입 앞쪽에 붙임
     // 상수
@@ -164,7 +164,7 @@
 <br>
 <br>
 
-# 5. Operator
+## 5. Operator
     ```
     // operator(연산자)
 
@@ -272,7 +272,7 @@
 <br>
 <br>
 
-# 6. List, Map, Set
+## 6. List, Map, Set
     ```
     // List
     List<String> blackPink = ['제니', '지수', '로제', '리사'];
@@ -375,6 +375,26 @@
 <br>
 <br>
 
-# 7. 
+## 7. enum
     ```
+    enum Status {
+        approved, // 승인
+        pending, // 대기
+        rejected // 거절
+    }
+    // 사용하는 이유
+    // - 정확히 이 3개의 값만 존재한다는걸 알려준다. (타인, 미래의 나한테)
+    // - 정확히 알맞는 값만 맞게 사용할 수 있게 한다. (오타 방지)
+
+    // 타입처럼 쓸수 있다
+    Status status = Status.pending;
+
+    if (status == Status.appeoved) {
+        print('승인입니다.');
+    } else if(status == Status.pending) {
+        print('대기입니다.');
+    } else if(status == Status.rejected) {
+        print('거절입니다.');
+    }
     ```
+
