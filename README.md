@@ -272,7 +272,7 @@
 <br>
 <br>
 
-# 6. List, Map
+# 6. List, Map, Set
     ```
     // List
     List<String> blackPink = ['제니', '지수', '로제', '리사'];
@@ -345,6 +345,31 @@
     // value값만 가져오기
     print(isHarryPotter.values);
 
+
+    =====================================================
+
+
+    // Set
+    // 알아서 중복값 삭제
+    final Set<String> names = {
+        'wnsdnn',
+        'Flutter',
+        'Black Pink',
+        'Flutter'
+    };
+
+    print(names);
+    // { 'wnsdnn', 'Flutter', 'Black Pink' }
+
+
+    // 값 추가
+    names.add('Jenny');
+
+    // 값 삭제
+    names.remove('Jenny');
+
+    // 값이 있는지 확인
+    names.remove('wnsdnn'); // true
     ```
 
 <br>
@@ -352,5 +377,4 @@
 
 # 7. 
     ```
-    
     ```
