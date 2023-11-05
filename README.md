@@ -9,8 +9,6 @@
 <br>
 
 ## 1. 콘솔 출력하기
-
-
     ```
     print("Hello World);
     ```
@@ -18,7 +16,6 @@
 <br>
 
 ## 2. 변수 선언하기
-
     ```
     // variable(변수)
     // 타입지정X
@@ -398,3 +395,112 @@
     }
     ```
 
+<br>
+<br>
+
+## 7. Function
+    ```
+    // 세계의 숫자 (x, y, z)를 더하는 함수
+    // 앞에 funciton 키워드 필요없음
+    // parameter / argument - 매개변수
+    // positional parameter - 순서가 중요한 파라미터
+    void addNumbers(inx x, [int? y = 5, int? z = 10]) {
+        int sum = x + y + z;
+        print('sum: $sum');
+    }
+
+
+
+    // optional parameter - 있어도 되고 없어도 되는 파라미터
+    // 값이 안넘어오면 기본값이 적용됨
+    void addNumbers(inx x, [int? y = 5, int? z = 10]) {
+        int sum = x + y + z;
+        print('sum: $sum');
+    }
+
+
+
+    // named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+    // required - 안넣으면 optional parameter처럼 안넣어도 되는 값으로 처리한다. (대신 기본값 있어야함)
+    void addNumbers({
+        required int x,
+        required int y,
+        int z = 30,
+    }) {
+        int sum = x + y + z;
+        print('sum: $sum');
+    }
+
+    // 함수 사용하는 방법
+    addNumbers(x: 10, y: 20, z: 30);
+    addNumbers(y: 60, z: 70, x: 40);
+
+    // optional, named 섞어서 사용가능
+    void addNumbers( int x, {
+        required int y,
+        int z = 30,
+    }) {
+        int sum = x + y + z;
+        print('sum: $sum');
+    }
+
+
+
+    // arrow function - 화살표 함수
+    int addNumbers( int x, {
+        required int y,
+        int z = 30,
+    }) => x + y + z;
+    
+
+
+    // 함수에 return 타입 있어야함
+    void: 그냥 실행 (리턴타입 X)
+    int: int형의 데이터 반환
+    String: String형의 데이터 반환
+    ... 그외의 다른 모든 타입들도 적용가능
+
+
+
+    =====================================================
+
+
+
+    // typedef
+    void main() {
+        Operation operation = add;
+
+        int result = operation(10, 20, 30);
+
+        print(result); // 60
+
+        operation = subtract;
+
+        int result2 = operation(10, 20, 30);
+
+        print(result2); // -40
+
+        int result3 = calculate(30, 40, 50, add);
+
+        print(result3); // 120
+
+        int result4 = calculate(40, 50, 60, subtract);
+
+        print(result4); // -70
+    }
+
+    // signature
+    typedef Operation = int Function(int x, int y, int z);
+
+    // 더하기
+    int add(int x, int y, int z) => x + y + z;
+
+
+    // 빼기
+    int subtract(int x, int y, int z) => x - y - z;
+
+    // 계산
+    int calculate(int x, int y, int z, Operation operation) {
+        return operation(x, y, z);
+    }
+    ```
