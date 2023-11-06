@@ -533,22 +533,24 @@
     //
     // constructor (생성자)
     class Idol {
-    String name;
-    List<String> members;
-    
-    // constructor
-    Idol(String name, List<String> members)
-        : this.name = name, 
-        this.members = members;
-    
-    
-    void sayHelo() {
-        print('안녕하세요 블랙핑크입니다.');
-    }
-    
-    void introduce() {
-        print('저희 멤버는 지수, 제니, 리사, 로제가 있습니다.');
-    }
-    
+        String name;
+        List<String> members;
+        
+        // constructor
+        // Idol(String name, List<String> members)
+        //     : this.name = name, 
+        //     this.members = members;
+
+        // 생성자 함수 이런식으로도 사용가능
+        Idol(this.name, this.members);
+        
+        
+        void sayHelo() {
+            print('안녕하세요 ${this.name}입니다.');
+        }
+        
+        void introduce() {
+            print('저희 멤버는 ${this.members}가 있습니다.');
+        }
     }
     ```
