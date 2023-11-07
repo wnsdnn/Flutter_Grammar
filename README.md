@@ -511,17 +511,27 @@
 ## 8. Class
     ```
     void main() {
-    // Dart언어에서는 클래스 생성시 'new' 키워드 생략 가능 (다른 언어에서는 'new' 기워드 필수)
-    Idol blackPink = Idol(
-        '블랙핑크', 
-        ['지수', '제니', '리사', '로제']
-    );
-    
-    print(blackPink.name);
-    print(blackPink.members);
-    blackPink.sayHelo();
-    blackPink.introduce();
-    
+        // Dart언어에서는 클래스 생성시 'new' 키워드 생략 가능 (다른 언어에서는 'new' 기워드 필수)
+        Idol blackPink = Idol(
+            '블랙핑크', 
+            ['지수', '제니', '리사', '로제']
+        );
+        
+        print(blackPink.name);
+        print(blackPink.members);
+        blackPink.sayHelo();
+        blackPink.introduce();
+        
+        Idol bts = Idol.fromList(
+            [
+            ['RM', '진', '슈가', '제이홉', '지민', '뷔', '정국'],
+            'BTS'
+            ]
+        );
+        print(bts.name);
+        print(bts.members);
+        bts.sayHelo();
+        bts.introduce();
     }
 
 
@@ -537,12 +547,17 @@
         List<String> members;
         
         // constructor
-        // Idol(String name, List<String> members)
+        //   Idol(String name, List<String> members)
         //     : this.name = name, 
         //     this.members = members;
-
-        // 생성자 함수 이런식으로도 사용가능
+        
         Idol(this.name, this.members);
+        
+        
+        // named 생성자를 사용해서도 값을 받을수 있음
+        Idol.fromList(List values)
+            : this.members = values[0],
+            this.name = values[1];
         
         
         void sayHelo() {
