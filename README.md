@@ -518,6 +518,23 @@
             ['지수', '제니', '리사', '로제']
         );
         
+        Idol blackPink2 = const Idol(
+            '블랙핑크', 
+            ['지수', '제니', '리사', '로제']
+        );
+        
+        Idol blackPink3 = const Idol(
+            '블랙핑크2', 
+            ['지수', '제니', '리사', '로제']
+        );
+        
+        
+        // const로 선언시 같은 값들이 들어가면 같은 인스턴스로 인식
+        print(blackPink == blackPink2);
+        print(blackPink == blackPink3);
+        
+        print('-------------');
+        
         // final 키워드를 사용해서 멤버변수의 값을 못 바꾸게 함
         // blackPink.name = '여준우'; // Error
         
@@ -546,7 +563,7 @@
     // introduce (멤버소개) - 함수
     //
     // constructor (생성자)
-        class Idol {
+    class Idol {
         // final 키워드 거의 필수
         final String name;
         final List<String> members;
