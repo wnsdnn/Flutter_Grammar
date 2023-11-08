@@ -513,27 +513,22 @@
     void main() {
         // Dart언어에서는 클래스 생성시 'new' 키워드 생략 가능 (다른 언어에서는 'new' 기워드 필수)
         // const를 붙이면 const로 선언할수 있는 값들만 지정할수 있음 (constructor에 const 키워드가 붙어야지 const로 선언가능)
-        Idol blackPink = const Idol(
+        // _Idol처럼 class 앞에 '_'를 붙이면 private 속성을 부여한 것과 같다.
+        _Idol blackPink = _Idol(
             '블랙핑크', 
             ['지수', '제니', '리사', '로제']
         );
         
-        Idol blackPink2 = const Idol(
-            '블랙핑크', 
-            ['지수', '제니', '리사', '로제']
-        );
-        
-        Idol blackPink3 = const Idol(
-            '블랙핑크2', 
-            ['지수', '제니', '리사', '로제']
-        );
+        //   Idol blackPink2 = const Idol(
+        //     '블랙핑크', 
+        //     ['지수', '제니', '리사', '로제']
+        //   );
         
         
         // const로 선언시 같은 값들이 들어가면 같은 인스턴스로 인식
-        print(blackPink == blackPink2);
-        print(blackPink == blackPink3);
+        //   print(blackPink == blackPink2);
         
-        print('-------------');
+        // print('-------------');
         
         // final 키워드를 사용해서 멤버변수의 값을 못 바꾸게 함
         // blackPink.name = '여준우'; // Error
@@ -543,43 +538,26 @@
         blackPink.sayHelo();
         blackPink.introduce();
         
-        Idol bts = Idol.fromList(
-            [
-            ['RM', '진', '슈가', '제이홉', '지민', '뷔', '정국'],
-            'BTS'
-            ]
-        );
-        print(bts.name);
-        print(bts.members);
-        bts.sayHelo();
-        bts.introduce();
+        
+        // setter에 경우 변수의 값을 할당하는 것처럼 사용하기 때문에 setter에 매개변수는 값을 1개밖에 받을 수 없다.
+        blackPink.firstMember = '준우';
+        
+        print(blackPink.firstMember);
     }
 
 
     // Idol class
-    // name (이름) - 변수
-    // members (멤버들) - 변수
-    // sayHello (인사) - 함수
-    // introduce (멤버소개) - 함수
-    //
-    // constructor (생성자)
-    class Idol {
-        // final 키워드 거의 필수
-        final String name;
-        final List<String> members;
-        
-        
-        //   Idol(String name, List<String> members)
-        //     : this.name = name, 
-        //     this.members = members;
+    class _Idol {
+        String name;
+        List<String> members;
         
         // constructor
-        // const constructor
-        const Idol(this.name, this.members);
+        _Idol(this.name, this.members);
+        // const Idol(this.name, this.members);
         
         
         // named 생성자를 사용해서도 값을 받을수 있음
-        Idol.fromList(List values)
+        _Idol.fromList(List values)
             : this.members = values[0],
             this.name = values[1];
         
@@ -590,6 +568,17 @@
         
         void introduce() {
             print('저희 멤버는 ${this.members}가 있습니다.');
+        }
+        
+        // getter
+        String get firstMember {
+            return this.members[0];
+        }
+        
+        // setter
+        // setter에 매개변수에는 무조건 매개변수의 값이 딱 1개만 들어간다
+        set firstMember(String name) {
+            this.members[0] = name;
         }
     }
     ```
