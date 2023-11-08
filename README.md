@@ -512,10 +512,14 @@
     ```
     void main() {
         // Dart언어에서는 클래스 생성시 'new' 키워드 생략 가능 (다른 언어에서는 'new' 기워드 필수)
-        Idol blackPink = Idol(
+        // const를 붙이면 const로 선언할수 있는 값들만 지정할수 있음 (constructor에 const 키워드가 붙어야지 const로 선언가능)
+        Idol blackPink = const Idol(
             '블랙핑크', 
             ['지수', '제니', '리사', '로제']
         );
+        
+        // final 키워드를 사용해서 멤버변수의 값을 못 바꾸게 함
+        // blackPink.name = '여준우'; // Error
         
         print(blackPink.name);
         print(blackPink.members);
@@ -542,16 +546,19 @@
     // introduce (멤버소개) - 함수
     //
     // constructor (생성자)
-    class Idol {
-        String name;
-        List<String> members;
+        class Idol {
+        // final 키워드 거의 필수
+        final String name;
+        final List<String> members;
         
-        // constructor
+        
         //   Idol(String name, List<String> members)
         //     : this.name = name, 
         //     this.members = members;
         
-        Idol(this.name, this.members);
+        // constructor
+        // const constructor
+        const Idol(this.name, this.members);
         
         
         // named 생성자를 사용해서도 값을 받을수 있음
