@@ -687,3 +687,50 @@
         }
     }
     ```
+
+
+<br>
+<br>
+
+## 9. Override
+    ```
+    void main() {
+        TimesTwo tt = TimesTwo(2);
+
+        print(tt.calculate());
+        
+        TimesFour tf = TimesFour(2);
+        
+        print(tf.calculate());
+    }
+
+    // method = function (class 내부에 있는 함수)
+    // override - 덮어쓰다 (우선시하다)
+    class TimesTwo {
+        final int number;
+
+        TimesTwo(this.number);
+
+        // method
+        int calculate() {
+            // this 생략가능
+            return number * 2;
+        }
+    }
+
+    class TimesFour extends TimesTwo {
+        TimesFour(int number) : super(number);
+    
+        // `@override` 생략 가능 (근데 써주는게 더 보기 좋음)
+        @override
+        int calculate() {
+            
+            // `super.number`이게 정석인데 생략가능
+            // return number * 4;
+            
+            // 이런식으로도 선언 가능
+            return super.calculate() * 2;
+        }
+    }
+
+    ```
