@@ -7,6 +7,12 @@
 # 1. dart 기본문법
 
 <br>
+<br>
+
+
+# Object Oriented Programming(객체지향 프로그래밍)
+<br>
+
 
 ## 1. 콘솔 출력하기
     ```
@@ -868,7 +874,7 @@
 <br>
 <br>
 
-## 12. OOP(Object Oriented Programming)
+## 13. OOP(Object Oriented Programming)
     ```
     void main() {
         Test test = Test();
@@ -882,3 +888,40 @@
     // 모든 클래스의 최상위 부모는 Object다
     class Test extends Object{}
     ```
+
+
+<br>
+<br>
+
+# Funcational Programming(함수형 프로그래밍)
+
+
+<br>
+
+## 1. 형변환
+    ```
+    void main() {
+        List<String> blackPink = ['로제', '지수', '리사', '제니'];
+        
+        // 형변환
+        print(blackPink);
+        print(blackPink.asMap());
+        print(blackPink.toSet());
+        
+        Map blackPinkMap = blackPink.asMap();
+        
+        print(blackPinkMap.keys.toList());
+        print(blackPinkMap.values.toList());
+        
+        Set blackPinkSet = Set.from(blackPink);
+        
+        print(blackPinkSet.toList());
+    }
+    ```
+
+<br>
+<br>
+
+## 2. Map() 함수
+
+
