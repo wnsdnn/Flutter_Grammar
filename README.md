@@ -922,6 +922,65 @@
 <br>
 <br>
 
-## 2. Map() 함수
+## 2. map() 함수
+    ```
+    // List에서 map() 함수 사용법
+    void main() {
+        List<String> blackPink = ['로제', '지수', '리사', '제니'];
+        
+        final newBlackPink = blackPink.map((x) {
+            return '블랙핑크 $x';
+        });
+        
+        print(blackPink);
+        print(newBlackPink.toList());
+        
+        
+        final newBlackPink2 = blackPink.map((x) => '블랙핑크 $x');
+        print(newBlackPink2.toList());
+        
+        print(blackPink == blackPink);
+        print(newBlackPink == blackPink);
+        print(newBlackPink == newBlackPink2);
+        
+        
+        // [1.jpg, 3.jpg, 5.jpg, 7.jpg, 9.jpg]
+        String number = '13579';
+        
+        final parsed = number.split('').map((x) => '$x.jpg').toList();
+        
+        print(parsed);
+    }
+
+
+    =====================================================
+
+
+    // Map에서 map() 함수 사용법
+    void main() {
+        Map<String, String> harryPotter = {
+            'Harry Potter': '해리 포터',
+            'Ron Weasley': '론 위즐리',
+            'Hermione Granger': '헤르미온느 그레인저'
+        };
+
+        final result = harryPotter.map((key, value) =>
+            MapEntry('Harry Potter Character: $key', ' 해리포터 캐릭터: $value'));
+
+        print(harryPotter);
+        print(result);
+
+        final keys = harryPotter.keys.map((x) => 'HPC: $x');
+        final values = harryPotter.values.map((x) => '해리포터 캐릭터: $x').toList();
+
+        print(keys);
+        print(values);
+    }
+
+
+    =====================================================
+
+
+    ```
 
 
