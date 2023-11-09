@@ -864,4 +864,21 @@
         }
     }
     ```
-    
+
+<br>
+<br>
+
+## 12. OOP(Object Oriented Programming)
+    ```
+    void main() {
+        Test test = Test();
+        
+        //   test.
+        // 기본으로 나오는 4개의 메소드들은 Object 클래스에서 제공해주는 메소드들이다.
+    }
+
+    // OOP(Object Oriented Programming)
+    // 객체지향 프로그래밍
+    // 모든 클래스의 최상위 부모는 Object다
+    class Test extends Object{}
+    ```
