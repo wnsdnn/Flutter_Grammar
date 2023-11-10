@@ -992,6 +992,7 @@
     
     print(newSet);
     ```
+
 <br>
 <br>
 
@@ -1099,5 +1100,24 @@
     }
     ```
 
+<br>
+<br>
 
+## 4. Cascading Operator
+    ```
+    void main() {
+        // js랑 똑같은듯
+        // [...] (cascading operator)
+        List<int> even = [2, 4, 6, 8];
+        List<int> odd = [1, 3, 5, 7];
+        
+        
+        print([...even, ...odd]);
+        print(even);
+        print([...even]);
+        
+        // ...을 사용하면 완전히 새로워진 값으로 취급됨
+        print(even == [...even]);
+    }
+    ```
 
