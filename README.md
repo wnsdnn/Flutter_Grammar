@@ -1020,6 +1020,7 @@
     =====================================================
 
 
+    // reduce() 함수
     void main() {
         List<int> numbers = [1, 3, 5, 7, 9];
         
@@ -1058,6 +1059,44 @@
     =====================================================
 
 
+    // fold() 함수
+    void main() {
+        List<int> numbers = [1, 3, 5, 7, 9];
+        
+        
+        // js에 reduce랑 reduce() 함수보다 더욱 일치
+        // reduce() 함수와 다른게 리턴타입이 배열과 같지 않아도 됨
+        final sum = numbers.fold<int>(0, (prev, next) {
+            // 맨처음에 prev에 값이 첫번째 매개변수의 값으로 들어옴
+            print('----------');
+            print('prev: $prev');
+            print('next: $next');
+            print('total: ${prev + next}');
+            
+            
+            return prev + next;
+        });
+        
+        print(sum);
+        print('');
+        
+        
+        List<String> words = [
+            '안녕하세요. ',
+            '저는 ',
+            '여준우입니다.'
+        ];
+        
+        final sentence = words.fold<String>('', (prev, next) => prev + next);
+        
+        print(sentence);
+        print('');
+        
+        
+        final count = words.fold<int>(0, (prev, next) => prev + next.length);
+        
+        print(count);
+    }
     ```
 
 
