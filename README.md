@@ -1020,6 +1020,44 @@
     =====================================================
 
 
+    void main() {
+        List<int> numbers = [1, 3, 5, 7, 9];
+        
+        // js의 reduce랑 거의 흡사
+        // 단 배열의 타입과 리턴해주는 값들의 타입이 일치해야한다.
+        final result = numbers.reduce((prev, next) {
+            // 맨처음에만 prev에 첫번째 값(1)이 들어가고 next에 (3)
+            // 그 다음부터는 prev에 누적값, next에 n번째 값이 들어감
+            
+            print('----------');
+            print('previous: $prev');
+            print('next: $next');
+            print('total: ${prev + next}');
+            
+            return prev + next;
+        });
+        
+        // final result = numbers.reduce((prev, next) => prev + next);
+        // print(result);
+        
+        
+        List<String> words = [
+            '안녕하세요. ',
+            '저는 ',
+            '여준우입니다.'
+        ];
+        
+        final sentence = words.reduce((prev, next) => prev + next);
+        
+        print(sentence);
+        
+        // words.reduce((prev, next) => prev.length + next.length); => Error
+    }
+
+
+    =====================================================
+
+
     ```
 
 
