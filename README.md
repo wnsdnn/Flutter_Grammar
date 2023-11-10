@@ -992,7 +992,35 @@
     
     print(newSet);
     ```
+<br>
+<br>
 
+## 3. 그외의 함수들
+    ```
+    // where() 함수
+    void main() {
+        List<Map<String, String>> people = [
+            { 'name': '로제', 'group': '블랙핑크', },
+            { 'name': '지수', 'group': '블랙핑크', },
+            { 'name': '로제', 'group': 'BTS', },
+            { 'name': '뷔', 'group': 'BTS', },
+        ];
+        
+        print(people);
+        
+        // js에 filter 메소드와 같은 동작을 하는듯
+        final blackPink = people.where((x) => x['group'] == '블랙핑크');
+        final bts = people.where((x) => x['group'] == 'BTS');
+        
+        print(blackPink);
+        print(bts);
+    }
+
+
+    =====================================================
+
+
+    ```
 
 
 
