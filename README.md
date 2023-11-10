@@ -1121,3 +1121,57 @@
     }
     ```
 
+<br>
+<br>
+
+## 4. 했던 것들 정리 (마무리)
+    ```
+    void main() {
+        final List<Map<String, String>> people = [
+            { 'name': '로제', 'group': '블랙핑크', },
+            { 'name': '지수', 'group': '블랙핑크', },
+            { 'name': '로제', 'group': 'BTS', },
+            { 'name': '뷔', 'group': 'BTS', },
+        ];
+        
+        print(people);
+        
+        
+        final parsedPeople = people.map((x) => Person(name: x['name']!, group: x['group']!)).toList();
+        
+        print(parsedPeople);
+        print('');
+        
+        
+        // 오류발생률도 적어지고 타입이 적용되어 쉽게 사용가능
+        final bts = parsedPeople.where((x) => x.group == 'BTS');
+        print(bts);
+        print('');
+        
+        
+        // 이런식으로 여러개 연동해서 사용가능
+        final result = people.map((x) => Person(name: x['name']!, group: x['group']!))
+            .where((x) => x.group == '블랙핑크');
+        
+        print(result);
+        }
+
+
+        // 데이터를 프론트에서 다룰때 이런식으로 구조화화여 데이터를 가공한다
+        class Person {
+        final String name;
+        final String group;
+        
+        Person({
+            required this.name,
+            required this.group
+        });
+        
+        // 메소드를 출력할때 어떤식으로 출력할건지 이 메소드를 사용해 정해줄수 있다.
+        @override
+        String toString() {
+            return 'Person(nane: $name, group: $group)';
+        }
+    }
+    ```
+
