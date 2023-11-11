@@ -1315,4 +1315,85 @@
     }
     ```
 
+    
+
+<br>
+<br>
+
+## 2. Destructuring
+    ```
+    void main() {
+        // Destructuring
+        // js 문법이랑 같음
+        final (name, age) = ('민지', 20);
+        
+        print(name);
+        print(age);
+        print('');
+        
+        final newJeans = ['민지', '해린'];
+        
+        final [String a, String b] = newJeans;
+        
+        print(a);
+        print(b);
+        print('');
+        
+        final numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+        
+        final [x, y, ..., z] = numbers;
+        
+        print(x);
+        print(y);
+        print(z);
+        print('');
+        
+        
+        final [xx, yy, ...rest, zz] = numbers;
+        
+        print(xx);
+        print(yy);
+        print(zz);
+        print(rest);
+        print('');
+        
+        
+        // _ => 완전히 무시(삭제되었다고 봐도 무방함. 가져올 방법 X)
+        final [xxx, _, yyy, ...rest2, zzz, _] = numbers;
+        
+        print(xxx);
+        print(yyy);
+        print(zzz);
+        print(rest2);
+        print('');
+        
+        
+        final minjiMap = { 'name': '민지', 'age': 19 };
+        
+        // Map은 key값을 꼭 써줘야함
+        final { 'name': name3, 'age': age3 } = minjiMap;
+        print(name3);
+        print(age3);
+        print('');
+        
+        final minjiIdol = Idol(name: '민지', age: 17);
+        
+        
+        final Idol(name: name4, age: age4) = minjiIdol;
+        
+        print(name4);
+        print(age4);
+    }
+
+    class Idol {
+        final String name;
+        final int age;
+        
+        Idol({
+            required this.name,
+            required this.age
+        });
+    }
+    ```
+
 
