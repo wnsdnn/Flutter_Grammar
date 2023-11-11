@@ -1396,4 +1396,112 @@
     }
     ```
 
+<br>
+<br>
 
+## 3. Pattern matching
+    ```
+    void main() {
+        // Pattern matching (Validation)
+        final minji = ('민지', 20);
+        final (name as String, age as int) = minji;
+        
+        print(name);
+        print(age);
+        
+        
+        //   switcher('aaa');
+        //   switcher('bbb');
+        //   switcher(['1', '2']);
+        //   switcher([1, 2]);
+        //   switcher([1, 2, 3]);
+        //   switcher([4, 5, 6]);
+        //   switcher([4, 5, 6, 7]);
+        
+        //   switcher([6, 9]);
+        //   switcher([6, '9']);
+        
+        
+        switcher(7);
+        switcher(17);
+        print('');
+        
+        print(switcher2(5, true));
+        print(switcher2(7, true));
+        print(switcher2(7, false));
+        print('');
+        
+        forLooper();
+        print('');
+        
+        ifMatcher();
+    }
+
+
+    void switcher(dynamic anything) {
+        switch(anything) {
+            case 'aaa':
+            print('match: aaa');
+            case ['1', '2']:
+            print('match: [1, 2]');
+            case [_, _, _]:
+            print('match: [_, _, _]');
+            case [int a, int b]:
+            // $a 이런식으로 출력 가능
+            print('match: [int $a, int $b]');
+            case < 10 && > 5:
+            print('match: < 10 && > 5');
+            default:
+            print('no match');
+        }
+    }
+    
+
+    // 이런식으로도 switch 사용가능
+    String switcher2(dynamic val ,bool condition) => switch(val) {
+        5 => 'match: 5',
+        7 when condition => 'match 7 and true',
+        // _ -> default
+        _ => 'no match'
+    };
+
+
+    void forLooper() {
+        final List<Map<String, dynamic>> members = [
+            {
+            'name': '민지',
+            'age': 20
+            },
+            {
+            'name': '해린',
+            'age': 19
+            }
+        ];
+        
+        for(final member in members) {
+            print(member['name']);
+            print(member['age']);
+        }
+        
+        print('--------------');
+        
+        for(var {'name': name, 'age': age} in members) {
+            print(name);
+            print(age);
+        }
+    }
+
+
+    void ifMatcher() {
+        final minji = {
+            'name': '민지',
+            'age': 20
+        };
+        
+        // if문 조건에 충족이 안되면 실행 X (선언한 타입이 다를때)
+        if(minji case {'name': String name, 'age': int age}) {
+            print(name);
+            print(age);
+        }
+    }
+    ```
