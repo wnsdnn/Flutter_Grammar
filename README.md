@@ -1175,3 +1175,35 @@
     }
     ```
 
+
+
+<br>
+<br>
+
+# Async Programming(비동기 프로그래밍)
+
+<br>
+
+## 1. Future
+    ```
+    void main() {
+        // Future - 미래
+        // 미래의 받아올 값
+        Future<String> name = Future.value('여준우');
+        Future<int> number = Future.value(1);
+        Future<bool> isTrue = Future.value(true);
+        
+        print('함수 시작');
+        
+        // 2개의 파라미터
+        // delayed - 지연되다.
+        // 1번 파라미터 - 지연할 기간 (얼마나 지연할건지) Duration
+        // 2번 파라미터 - 지연 시간이 지난 후 실행할 함수.
+        Future.delayed(Duration(seconds: 2), () {
+           print('Delay 끝');
+        );
+    }
+    ```
+
+
+
