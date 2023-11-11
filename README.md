@@ -1315,7 +1315,108 @@
     }
     ```
 
-    
+<br>
+<br>
+
+# Dart 3.0에서 새로 추가된 사항들
+
+<br>
+
+## 1. Record
+    ```
+    void main() async {
+        final result = nameAndAge({
+            'name': '민지',
+            'age': 20
+        });
+        
+        print(result);
+        print(result.$1);
+        print(result.$2);
+        
+        print('');
+        
+        
+        final result3 = getNewJeansWithType();
+        
+        for(final item in result3) {
+            print(item.$1);
+            print(item.$2);
+        }
+        
+        print('');
+        
+        
+        final result4 = getNewJeansWithType2();
+        
+        for(final item in result4) {
+            print(item.$1);
+            print(item.$2);
+        }
+        
+        print('');
+        
+        
+        final result5 = getNewJeansWithType3();
+        
+        for(final item in result5) {
+            print(item.name);
+            print(item.age);
+        }
+        
+        print('');
+        
+        final result6 = getMinji();
+        print(result6);
+        }
+
+        // Record
+        // 타입과 타입의 순서를 보장받을수 있음
+        (String, int) nameAndAge(Map<String, dynamic> json) {
+        // 일반 괄호를 사용하면 순서를 보장해줌
+        return (json['name'] as String, json['age'] as int);
+    }
+
+
+    // 기본
+    List<Map<String, dynamic>> getNewJeans() {
+        return [
+            { 'name': '민지', 'age': 20 },
+            { 'name': '혜린', 'age': 18 }
+        ];
+    }
+
+
+    // Record 사용해서 값들 리턴
+    List<(String, int)> getNewJeansWithType() {
+        return [
+            ( '민지', 20 ),
+            ( '혜린', 18 )
+        ];
+    }
+
+    // 이름 정해주기
+    List<(String name, int age)> getNewJeansWithType2() {
+        return [
+            ( '민지', 20 ),
+            ( '혜린', 18 )
+        ];
+    }
+
+    // 이름으로 값을 가쟈올수 있음
+    List<({String name, int age})> getNewJeansWithType3() {
+        return [
+            ( name: '민지', age: 20 ),
+            ( name: '혜린', age: 18 )
+        ];
+    }
+
+
+    (String name, String group, int age) getMinji() {
+        return ('민지', '뉴진스', 19);
+    }
+    ```
+
 
 <br>
 <br>
@@ -1504,4 +1605,82 @@
             print(age);
         }
     }
+    ```
+
+<br>
+<br>
+
+## 4. 클래스 키워드들
+    ```
+    void main() {}
+
+    // final로 클래스를 선언하면
+    // extends, implement 또는 maxin으로 사용이 불가능하다. (단 같은 파일 안에서는 가능함)
+    final class Person {
+        final String name;
+        final int age;
+        
+        Person({
+            required this.name,
+            required this.age
+        });
+    }
+
+
+    // base로 선언하면 extends는 가능하지만 implements는 불가능한다.
+    // base, sealed, final로 선언된 클래스만 extends가 가능하다.
+    base class Person2 {
+        final String name;
+        final int age;
+        
+        Person2({
+            required this.name,
+            required this.age
+        });
+    }
+
+
+
+    // interface로 선언하면 implement만 가능하다.
+    interface class Person3 {
+        final String name;
+        final int age;
+        
+        Person3({
+            required this.name,
+            required this.age
+        });
+    }
+
+
+    // sealed 클래스는 abstract이면서 final이다.
+    // 그리고 패턴매칭으로 사용 할 수 있도록 해준다.
+    sealed class Person4 {}
+
+    class Idol extends Person4 {}
+    class Enginner extends Person4 {}
+
+    class Chef extends Person4 {}
+
+    // Chef라는 클래스도 있는데 switch문에 선언 안해줘서 오류
+    // sealed 사용하게 되면 모든 케이스가 다 매칭이 되었는지 확인하는 기능이 추가됨
+    String whoIsHe(Person4 person) => switch {
+        Idol i => '아이돌',
+        Enginner e => '엔지니어',
+        // 이거 추가해줘야함
+        _ => '나머지'
+    };
+
+
+
+    // Mixin Class (이건 잘 모르겠음..)
+    // 1) mixin은 extends나 with을 사용할 수 없다. 그렇기 때문에 mixin class도 마찬가지로 사용 불가능하다.
+    // 2) 클래스는 on 키워드를 사용할 수 없다. 그렇기 때문에 mixin class도 on 키워드를 사용할 수 없다.
+    mixin class AnimalMixin {
+        String bark() {
+            return '멍멍';
+        }
+    }
+
+    class Dog with AnimalMixin {}
     ```
