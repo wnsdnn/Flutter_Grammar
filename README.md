@@ -1257,6 +1257,62 @@
         controller.sink.add(6);
         controller.sink.add(9);
     }
+
+
+    =====================================================
+
+
+
+    // 기본제공이 아니기 떼문에 import
+    import 'dart:async';
+
+    void main() async {
+        calculate(2).listen((val) {
+            print('calculate(2): $val');
+        });
+        
+        
+        calculate(4).listen((val) {
+            print('calculate(4): $val');
+        });
+    }
+
+    // yield가 실행될때마다 리스너에 값을 던질수 있다
+    Stream<int> calculate(int number) async* {
+        for(int i = 0; i < 5; i++) {
+            yield i * number;
+            
+            await Future.delayed(Duration(seconds: 1));
+        }
+    }
+
+
+    =====================================================
+
+
+    // 기본제공이 아니기 떼문에 import
+    import 'dart:async';
+
+    void main() async {
+        playAllStream().listen((val) {
+            print(val);
+        });
+    }
+
+    Stream<int> playAllStream() async* {
+        // yield*: 값이 다 return 될때까지 기다리기
+        yield* calculate(1);
+        yield* calculate(1000);
+        }
+
+        // yield가 실행될때마다 리스너에 값을 던질수 있다
+        Stream<int> calculate(int number) async* {
+        for(int i = 0; i < 5; i++) {
+            yield i * number;
+            
+            await Future.delayed(Duration(seconds: 1));
+        }
+    }
     ```
 
 
