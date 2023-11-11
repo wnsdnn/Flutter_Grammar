@@ -1195,12 +1195,17 @@
         
         
         // await은 Future를 리턴해주는 함수에서만 사용이 가능
-        await addNumbers(1, 1);
-        await addNumbers(2, 2);
+        final result1 = await addNumbers(1, 1);
+        final result2 =  await addNumbers(2, 2);
+        
+        
+        print('');
+        print('result1: $result1');
+        print('result2: $result2');
+        print('result2 + result2 = ${result1 + result2}');
     }
 
-
-    Future<void> addNumbers(int number1, int number2) async {
+    Future<int> addNumbers(int number1, int number2) async {
         print('계산 시작: $number1 + $number2');
         
         // 서버 시뮬레이션
@@ -1213,13 +1218,9 @@
         });
         
         print('함수 완료: $number1 + $number2');
+        
+        return number1 + number2;
     }
-
-
-
-    =====================================================
-
-
     ```
 
 
