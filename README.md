@@ -1224,4 +1224,39 @@
     ```
 
 
+<br>
+<br>
+
+## 2. Stream
+    ```
+    // 기본제공이 아니기 떼문에 import
+    import 'dart:async';
+
+    void main() async {
+        final controller = StreamController();
+        // asBroadcastStream추가해서 여러 stream 설정가능
+        final stream = controller.stream.asBroadcastStream();
+        
+        
+        // 짝수만 받는 곳
+        final streamListrner = stream.where((val) => val % 2 == 0).listen((val) {
+            print('Listener 1: $val');
+        });
+        
+        
+        // 홀수만 받는 곳
+        final streamListrner2 = stream.where((val) => val % 2 != 0).listen((val) {
+            print('Listener 2: $val');
+        });
+        
+        // 이런식으로 값들 controller로 보내줄수 있음
+        controller.sink.add(1);
+        controller.sink.add(4);
+        controller.sink.add(3);
+        controller.sink.add(12);
+        controller.sink.add(6);
+        controller.sink.add(9);
+    }
+    ```
+
 
