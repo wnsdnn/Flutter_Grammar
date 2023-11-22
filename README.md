@@ -12,7 +12,7 @@
 
 # Object Oriented Programming(객체지향 프로그래밍)
 <br>
-
+주석을 //
 
 ## 1. 콘솔 출력하기
     ```
